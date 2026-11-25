@@ -3,10 +3,13 @@ import numpy as np
 import scipy.integrate as sp
 import matplotlib.pyplot as plt
 
+# Les donnees de pointage (Tracker) sont dans le dossier data/
+DONNEES = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
+
 #VOLANT À PLUMES
 #Étude expérimentale
 
-fichier = open('/Users/matheocail/Desktop/MPSI/TIPE/Pointage/Données_plumes.txt', 'r')
+fichier = open(os.path.join(DONNEES, 'feather.txt'), 'r', encoding='utf-8')
 traj = fichier.readlines()
 fichier.close()
 traj.pop(0)
@@ -102,7 +105,7 @@ print("Différence point de chute théorique/expérimentale :", round(abs(x[-1]-
 #VOLANT EN PLASTIQUE
 #Étude expérimentale
 
-fichier = open('/Users/matheocail/Desktop/MPSI/TIPE/Pointage/Données_plastique.txt', 'r')
+fichier = open(os.path.join(DONNEES, 'plastic.txt'), 'r', encoding='utf-8')
 traj = fichier.readlines()
 fichier.close()
 traj.pop(0)
@@ -199,7 +202,7 @@ print("Différence point de chute théorique/expérimentale :", round(abs(x[-1]-
 #OSCILLATIONS DU VOLANT
 #Traitement des données de Tracker
 
-fichier = open('/Users/matheocail/Desktop/PSI/TIPE/Pointage/Données_angles.py', 'r')
+fichier = open(os.path.join(DONNEES, 'oscillation_angles.txt'), 'r', encoding='utf-8')
 traj = fichier.readlines()
 fichier.close()
 traj.pop(0)
@@ -245,7 +248,7 @@ plt.show()
 #VOLANT DÉTÉRIORÉ
 #Traitement des données de Tracker
 
-fichier = open('/Users/matheocail/Desktop/PSI/TIPE/Pointage/Données_abîmé.txt', 'r')
+fichier = open(os.path.join(DONNEES, 'damaged.txt'), 'r', encoding='utf-8')
 traj = fichier.readlines()
 fichier.close()
 traj.pop(0)
